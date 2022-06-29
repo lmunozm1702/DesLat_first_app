@@ -1,0 +1,114 @@
+1.- Crear un proyecto llamado first_app (1 Punto)
+
+	rails new first_app
+
+	En GEMFILE
+
+	gem 'sqlite3', '~> 1.4', group: :development
+	gem 'pg', group: :production
+
+2.- Inicializar Git (1 Punto)
+
+	El script de creación hace el init en GIT. No es necesario.
+
+3.- Añadir los cambios y hacer el primer committ (1 Punto)
+
+	bundle
+	git add .
+	git commit -m "first commit"
+
+4.- Crear el controlador pages con las páginas one y two (2 Puntos)
+
+	rails g controller pages one two
+
+5.- Setear la página one como página de inicio (1 Punto)
+
+comentar en /app/views/layouts/application.html.erb
+<%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+/config/routes.rb
+agregar al final antes del end:
+root 'pages#one'
+
+6.- Agregar un título h1 con tu nombre completo en la página de inicio (0.5 Punto)
+
+/app/views/pages/one.html.erb
+agregar el tag <h1>Luis Muñoz</h1> al final como se indica.
+
+7.- Ejecutar el comando rake routes en la terminal y obtener una captura de pantalla del
+resultado (0.5 Punto)
+
+rails routes #rake es en versiones bajo 6.x de rails
+
+8.- Insertar la imagen de la captura de pantalla obtenida a la página two (1 Punto)
+
+<%= image_tag 'rails_routes.png' %>
+
+9.- Añadir los cambios y hacer el segundo commit (0.5 Punto)
+
+git add .
+git commit -m "Segundo Commit"
+
+10.- Agregar el método three al controlador Pages (1 Punto)
+
+app\controllers\pages_controller.rb
+agregar:
+  def three
+  end
+
+11.- Agregar un archivo llamado three.html.erb a la carpeta views del controlador pages
+(0.5 Punto)
+
+crear app\views\pages\three.html.erb
+
+12.- En el archivo routes.rb agregar la ruta que apunta al controlador pages con el método
+three (1 Punto)
+
+En config\routes.rb agregar
+  get 'pages/three'
+
+13.- Agregar un título h2 y un párrafo Lorem ipsum en la página three (1 Punto)
+
+En app\views\pages\three.html.erb agregar el texto
+
+14.- Añadir los cambios y hacer el tercer commit (0.5 Punto)
+
+git add .
+git commit -m "Tercer Commit"
+
+
+15.- Agregar un navbar al layout (2 Puntos)
+
+En /app/views/layouts/application.html.erb agregar:
+    <nav>
+      <ul>
+        <li><%= link_to 'One', pages_one_path %></li>
+        <li><%= link_to 'Two', pages_two_path %></li>
+        <li><%= link_to 'Three', pages_three_path %></li>
+      </ul>
+    </nav>
+
+    </nav>
+
+16.- El navbar debe contener la clase navbar-inverse y su estructura sólo debe contener 3 links donde cada uno llevará a la página correspondiente (2 Puntos)
+
+<nav class="navbar-inverse">
+
+17.- Añadir los cambios y hacer el cuarto commit (1 Punto)
+
+git add .
+git commit -m "Cuarto Commit"
+
+
+18.- Crear un repositorio en GitHub (1 Punto)
+
+Crear nuevo repositorio en github y ejecutar comandos en la consola ubuntu
+
+19.- Inicializar proyecto en Heroku y hacer push (2 Puntos)
+
+heroku login
+heroku create
+bundle
+git add .
+git commit -m "First commit to push to heroku"
+git push heroku master
